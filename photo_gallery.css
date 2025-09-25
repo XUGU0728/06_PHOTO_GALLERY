@@ -10,7 +10,7 @@ body{width: 100vw; background-color: #F2F8F8; overflow-x: hidden; position: rela
 /***********PAGE01*/
 /* 여기부터 메인타이틀-------------------- */
     .title{width: 100%; height: 93dvh; font-family: 'StrongArmy'; display: flex; align-items: center; flex-direction: column; background-image: url(./image/00titleImage.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
-    .title>div:nth-child(1){font-size: 2rem; margin-top: 1rem; color:#F2F8F8;}
+    .title>div:nth-child(1){font-size: 2.5rem; margin-top: 1rem; color:#F2F8F8;}
     .title>div:nth-child(2){color:#F2F8F8;}
 
 /* 여기부터 네비-------------------- */
