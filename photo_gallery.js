@@ -133,8 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================= 이미지 & 이름 배열 =================
     // 슬라이드에서 사용할 이미지 경로 배열
     let images2 = [
-        './image/img01.JPG','./image/img02.JPG','./image/img03.JPG','./image/img04.JPG','./image/img05.JPG',
-        './image/img06.JPG','./image/img07.JPG','./image/img08.JPG','./image/img09.JPG','./image/img10.JPG',
+        './image/img01.JPG','./image/img02.jpg','./image/img03.JPG','./image/img04.JPG','./image/img05.JPG',
+        './image/img06.JPG','./image/img07.JPG','./image/img08.JPG','./image/img09.JPG','./image/img10.jpg',
         './image/img11.JPG','./image/img12.JPG','./image/img13.JPG','./image/img14.JPG'
     ];
 
