@@ -1,54 +1,12 @@
+// 햄버거메뉴
+let hamburger = document.querySelector('.hamburger');
+let mobileMenu = document.querySelector('.mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+});
+
 //***********PAGE01*/
-//상단 메인스크롤---------------------
-    let targetY = 908;      // 스크롤하고 싶은 최종 Y 좌표
-    let lastScrollY = 0;    // 이전 스크롤 위치를 저장할 변수 (현재 코드에서는 사용되지 않음)
-    let isScrolling = false; // 현재 스크롤 애니메이션이 진행 중인지 여부를 체크
-
-    // 부드럽게 스크롤 이동하는 함수
-    function smoothScrollToY(destinationY) {
-        if (isScrolling) return; // 이미 스크롤 중이면 함수 실행 중단
-        isScrolling = true;      // 스크롤 시작
-
-        let startY = window.scrollY;        // 현재 스크롤 위치
-        let distance = destinationY - startY; // 이동해야 할 거리 계산
-        let duration = 300;                 // 애니메이션 지속 시간(ms)
-        let startTime = null;               // 애니메이션 시작 시간 저장
-
-        // requestAnimationFrame 콜백 함수
-        function animation(currentTime) {
-            if (!startTime) startTime = currentTime; // 애니메이션 처음 시작 시 시간 기록
-            let timeElapsed = currentTime - startTime; // 경과 시간 계산
-            let progress = Math.min(timeElapsed / duration, 1); // 0~1 사이 진행률 계산
-            let ease = progress; // easing 함수 (지금은 linear)
-
-            // 현재 위치로 스크롤
-            window.scrollTo(0, startY + distance * ease);
-
-            if (timeElapsed < duration) {
-                // 애니메이션이 끝나지 않았으면 다음 프레임 실행
-                requestAnimationFrame(animation);
-            } else {
-                // 애니메이션 종료 후 정확히 목표 위치로 이동
-                window.scrollTo(0, destinationY);
-                isScrolling = false; // 스크롤 상태 초기화
-            }
-        }
-
-    // 애니메이션 시작
-    requestAnimationFrame(animation);
-    }
-
-    window.addEventListener('scroll', () => {
-    let currentY = window.scrollY;
-
-    // 아래로 스크롤 && 목표 위치보다 위 && 400 이상
-    if (currentY >= 400 && currentY < targetY && currentY > lastScrollY) {
-        smoothScrollToY(targetY);
-    }
-
-    lastScrollY = currentY;
-    });
-
 // 이미지 순차 나타남 ---------------------
 document.addEventListener('DOMContentLoaded', () => {
     // 페이지가 모두 로드된 후 실행
