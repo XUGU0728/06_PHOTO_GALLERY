@@ -26,7 +26,7 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
             nav{display: none;}
             .mobileNav {display: block; height: 4rem; z-index: 100; position: absolute; right: 0; top: 0;}
             .hamburger {font-size: 28px; color: #F7F5F2; cursor: pointer;  position: absolute; right: 1.5rem; top: 0.8rem; z-index: 101;}
-            .mobileMenu {transform: translateX(20dvh); background-color: #333; display: none; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
+            .mobileMenu {transform: translateX(20vh); background-color: #333; display: none; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
             .mobileMenu.open{transform: translateX(0); display: flex;}
             .mobileMenu>a {padding: 10px 20px; font-weight: bold; margin: 20px 0; color: #F2F8F8; border-bottom: 1px solid #F2F8F8; width: 50%;}
         }
