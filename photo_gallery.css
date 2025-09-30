@@ -25,9 +25,9 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
         @media(max-width:480px){
             nav{display: none;}
             .mobileNav {display: block; height: 4rem; z-index: 100; position: absolute; right: 0; top: 0;}
-            .hamburger {font-size: 28px; color: #F7F5F2; cursor: pointer;  position: absolute; right: 1rem; top: 0.8rem; z-index: 101;}
-            .mobileMenu {transform: translateX(20dvh); background-color: #333; display: flex; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
-            .mobileMenu.open{transform: translateX(0);}
+            .hamburger {font-size: 28px; color: #F7F5F2; cursor: pointer;  position: absolute; right: 1.5rem; top: 0.8rem; z-index: 101;}
+            .mobileMenu {transform: translateX(20dvh); background-color: #333; display: none; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
+            .mobileMenu.open{transform: translateX(0); display: flex;}
             .mobileMenu>a {padding: 10px 20px; font-weight: bold; margin: 20px 0; color: #F2F8F8; border-bottom: 1px solid #F2F8F8; width: 50%;}
         }
 
@@ -77,10 +77,11 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
         }
 
 /***********PAGE02-about*/
-    .title2{width: 100%; height: 100dvh; font-family: 'StrongArmy'; position: relative; display: flex; align-items: center; flex-direction: column; background-image: url(./image/01titleImage.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
-    .title2>div:nth-child(1){z-index: 1; font-size: 2.5rem; margin-top: 1rem; color:#F2F8F8;}
-    .title2>div:nth-child(2){z-index: 1; color:#F2F8F8;}
-    .title2>div:nth-child(3){width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; background-color: rgba(0,0,0,0.6);}
+    .title2{width: 100%; height: 100dvh; font-family: 'StrongArmy'; position: relative;  background-image: url(./image/01titleImage.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+    .title2>a{display: flex; align-items: center; flex-direction: column;}
+    .title2>a>div:nth-child(1){z-index: 1; font-size: 2.5rem; margin-top: 1rem; color:#F2F8F8;}
+    .title2>a>div:nth-child(2){z-index: 1; color:#F2F8F8;}
+    .title2>div:nth-child(2){width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; background-color: rgba(0,0,0,0.6);}
 
     .container04{width: 40%; height: 40%; background-color: #F2F8F8; position: absolute; left: 26%; top: 30%; transform:scaleX(0); transition: all 1s linear; overflow: hidden; opacity: 0;}
     .show {opacity: 1; transform:scaleX(1);}
@@ -116,7 +117,7 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
 .contactBox{display: flex; gap: 1rem;}
 
 /***********푸터*/
-footer{width: 100%; height: 100px; display: flex;  gap: 10px; flex-direction: column; justify-content: center; align-items: center; background-color: #333; position: absolute; bottom: 0; left: 0;}
+footer{width: 100%; height: 80px; display: flex;  gap: 10px; flex-direction: column; justify-content: center; align-items: center; background-color: #333; position: absolute; bottom: 0; left: 0;}
 footer>div{color: #F2F8F8;}
 
         /*모바일*/
