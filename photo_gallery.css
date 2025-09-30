@@ -6,13 +6,18 @@
 }
 
 *{margin: 0; padding: 0; list-style: none; text-decoration: none; color: #333; user-select: none;}
-body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden; position: relative; padding-bottom: 60px;}
+body{width: 100dvw; background-color: #F2F8F8; overflow-x: hidden; position: relative;}
 /***********PAGE01*/
 /* 여기부터 메인타이틀-------------------- */
     .title{width: 100%; height: 93dvh; font-family: 'StrongArmy'; background-image: url(./image/00titleImage.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
     .title>a{display: flex; align-items: center; flex-direction: column; }
     .title>a>div:nth-child(1){font-size: 2.5rem; margin-top: 1rem; color:#F2F8F8;}
     .title>a>div:nth-child(2){color:#F2F8F8;}
+
+        /*모바일*/
+        @media(max-width:480px){
+            .title>a>div:nth-child(1){font-size: 2rem;}
+        }
 
 /* 여기부터 네비-------------------- */
     nav{width: 100%; height: 4rem; background-color: #F2F8F8; display: flex; justify-content: center; align-items: center; position: absolute; top: 100px; z-index: 100;} 
@@ -27,8 +32,8 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
             nav{display: none;}
             .mobileNav {display: block; height: 4rem; z-index: 100; position: absolute; right: 0; top: 0;}
             .hamburger {font-size: 28px; color: #F7F5F2; cursor: pointer;  position: absolute; right: 1.5rem; top: 0.8rem; z-index: 101;}
-            .mobileMenu {transform: translateX(20vh); background-color: #333; display: flex; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
-            .mobileMenu.open{transform: translateX(0);}
+            .mobileMenu {transform: scaleX(0); transform-origin: right top; background-color: #333; display: flex; flex-direction: column; width: 20dvh; height: 100dvh; position: absolute; top: 0; right: 0; transition: all 0.3s linear;}
+            .mobileMenu.open{transform: scaleX(1);}
             .mobileMenu>a {padding: 10px 20px; font-weight: bold; margin: 20px 0; color: #F2F8F8; border-bottom: 1px solid #F2F8F8; width: 50%;}
         }
 
@@ -44,13 +49,12 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
     
         /*모바일*/
         @media(max-width:480px){
-            .sec01{flex-direction: column-reverse; align-items: center;}
+            .sec01{flex-direction: column-reverse; align-items: center; height: 170dvh;}
             .container02{width: 90%; height: 45rem;}
         }
 
     /* 여기부터 섹션03_메인페이지 포토-------------------- */
     .container03{width: 80%; height: 280vh; background-color: white; position: relative;}
-    [alt]{transition: all 0.2s linear;}
     .mainImg:hover [alt]{transform: scale(1.2)}
     .mainImg{position: absolute; width: 31.5%; filter: brightness(0.4); transition: all 0.2s linear; overflow: hidden;}
     .mainImg:hover{cursor: pointer; transform: scale(1.05); filter: brightness(1);}
@@ -84,22 +88,27 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
     .title2>a>div:nth-child(2){z-index: 1; color:#F2F8F8;}
     .title2>div:nth-child(2){width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; background-color: rgba(0,0,0,0.6);}
 
-    .container04{width: 40%; height: 40%; background-color: #F2F8F8; position: absolute; left: 26%; top: 30%; transform:scaleX(0); transition: all 1s linear; overflow: hidden; opacity: 0;}
-    .show {opacity: 1; transform:scaleX(1);}
-    .aboutBox{width: 80%; height: 70%; background-color: white; margin: 2rem auto; padding: 30px; display: flex; align-items: center; flex-direction: column; gap: 2rem;}
-    .aboutBox>div:nth-child(2){font-size: 1.8rem; font-family: 'StrongArmy';}
-    .aboutBox>div:nth-child(4){text-align: center;}
+    .container04{width: 40%; height: 40%; background-color: #F2F8F8; position: absolute; left: 26%; top: 30%; perspective: 1000px; display: flex; justify-content: center; align-items: center;}
+    .flipCard{width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: relative;}
+    .flipCard:hover .aboutBox, .flipCard.touch-active .aboutBox {transform: rotateY(180deg);}
+    .aboutBox{position: relative; width: 100%; height: 100%; transition: all 0.8s linear; transform-style: preserve-3d;}
+    .flipFront, .flipBack {width: 100%; height: 100%; position: absolute; top: 0; left: 0; display: flex; align-items: center; backface-visibility: hidden; box-sizing: border-box;}
+    .flipFront{background-image: url(./image/01miniProfile.PNG); background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;}
+    .flipFront>div:nth-child(1){text-align: center; color: #F2F8F8; background-color: rgba(0,0,0,0.4); border-radius: 10px; padding: 20px 20px; width: 80%; margin: 1rem auto;}
+    .flipBack{transform: rotateY(180deg); background-color: white; padding: 30px; flex-direction: column; gap: 3rem;}
+    .flipBack>div:nth-child(2){font-size: 1.8rem; font-family: 'StrongArmy';}
     .aboutIcon{display: flex; justify-content: center; gap: 2rem; margin-top: 0.8rem;}
 
         /*모바일*/
         @media(max-width:480px){
+            .title2>a>div:nth-child(1){font-size: 2rem;}
             .container04{width: 90%; height: 60%; left: 5%; top: 20%;}
-            .aboutBox{height: 80%;}
+            .flipCard:hover .aboutBox {transform: none;}
             .aboutIcon{flex-wrap: wrap;}
         }
 
 /***********PAGE03-photo*/
-#slideContainer {position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; gap: 3.5rem;}
+#slideContainer {height: auto; position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; gap: 3.5rem;}
 .slideBox {display: flex; flex-direction: column; align-items: center;}
 #mainSlide {max-width: 900px; max-height: 700px; border-radius: 5px; box-shadow: 0 0 1rem rgba(0,0,0,0.7); border: 10px solid #F2F8F8; transition: opacity 0.5s ease;}
 #prevSlide, #nextSlide {width: 300px; height: auto; cursor: pointer; opacity: 0.4; border-radius: 5px; transition: all 0.3s ease;}
@@ -108,7 +117,7 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
 
         /*모바일*/
         @media(max-width:480px){
-            #slideContainer{flex-direction: column; gap: 1rem;}
+            #slideContainer{flex-direction: column; gap: 1rem; top: 45%;}
             #mainSlide{max-width: 350px; max-height: 400px;}
             #prevSlide, #nextSlide{width: 100px; height: auto;}
             .slideName{font-size: 0.7rem; width: 150px; padding: 2px 5px; background-color: rgba(255,255,255,0.4); color: black;}
@@ -118,7 +127,7 @@ body{width: 100dvw; height: auto; background-color: #F2F8F8; overflow-x: hidden;
 .contactBox{display: flex; gap: 1rem;}
 
 /***********푸터*/
-footer{width: 100%; height: 80px; display: flex;  gap: 10px; flex-direction: column; justify-content: center; align-items: center; background-color: #333; position: absolute; bottom: 0; left: 0;}
+footer{width: 100%; height: 80px; display: flex; gap: 10px; flex-direction: column; justify-content: center; align-items: center; background-color: #333;}
 footer>div{color: #F2F8F8;}
 
         /*모바일*/

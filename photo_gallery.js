@@ -3,25 +3,7 @@ let hamburger = document.querySelector('.hamburger');
 let mobileMenu = document.querySelector('.mobileMenu');
 
     hamburger.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('open')) {
-            // 닫기
-            mobileMenu.classList.remove('open');
-
-            // 트랜지션 끝난 후 display:none
-            mobileMenu.addEventListener('transitionend', function handler() {
-            if (!mobileMenu.classList.contains('open')) {
-                mobileMenu.style.display = 'none';
-            }
-            mobileMenu.removeEventListener('transitionend', handler);
-            });
-
-        } else {
-            // 열기
-            mobileMenu.style.display = 'flex';
-            requestAnimationFrame(() => { // 리플로우 후 애니메이션 적용
-            mobileMenu.classList.add('open');
-            });
-        }
+            mobileMenu.classList.contains('open') ? mobileMenu.classList.remove('open') : mobileMenu.classList.add('open');
     });
 
 //***********PAGE01*/
@@ -71,9 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 스크롤 이벤트
     window.addEventListener('scroll', () => {
         let currentY = window.scrollY; // 현재 스크롤 위치
+        let targetY = document.querySelector('.container01').offsetTop
 
-        // 조건: 아래로 스크롤 && 908px 이상 && 아직 페이드 인 시퀀스가 실행 안됨
-        if (!triggered && currentY >= 908 && currentY > lastScrollY) {
+        // 조건: 아래로 스크롤 && 아직 페이드 인 시퀀스가 실행 안됨
+        if (!triggered && currentY >= targetY && currentY > lastScrollY) {
             triggered = true; // 한 번만 실행하도록 플래그 변경
             fadeInSequence(); // 이미지 순차 페이드 인 실행
         }
@@ -85,13 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //***********PAGE02-about*/
 //프로필박스
-    window.addEventListener('load', () => {
-        let container04 = document.querySelector('.container04');
-        setTimeout(() => {
-            container04.classList.add('show');
-        }, 500); // 0.5초 후 애니메이션 시작
+document.querySelectorAll('.flipCard').forEach(card => {
+    card.addEventListener('touchstart', () => {
+        card.classList.toggle('touch-active');
     });
-
+});
 //***********PAGE03-photo*/
 document.addEventListener("DOMContentLoaded", () => {
     // 페이지가 로드되면 실행
