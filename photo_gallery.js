@@ -2,9 +2,27 @@
 let hamburger = document.querySelector('.hamburger');
 let mobileMenu = document.querySelector('.mobileMenu');
 
-hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-});
+    hamburger.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) {
+            // 닫기
+            mobileMenu.classList.remove('open');
+
+            // 트랜지션 끝난 후 display:none
+            mobileMenu.addEventListener('transitionend', function handler() {
+            if (!mobileMenu.classList.contains('open')) {
+                mobileMenu.style.display = 'none';
+            }
+            mobileMenu.removeEventListener('transitionend', handler);
+            });
+
+        } else {
+            // 열기
+            mobileMenu.style.display = 'flex';
+            requestAnimationFrame(() => { // 리플로우 후 애니메이션 적용
+            mobileMenu.classList.add('open');
+            });
+        }
+    });
 
 //***********PAGE01*/
 // 이미지 순차 나타남 ---------------------
