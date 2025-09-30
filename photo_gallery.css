@@ -88,13 +88,15 @@ body{width: 100dvw; background-color: #F2F8F8; overflow-x: hidden; position: rel
     .title2>a>div:nth-child(2){z-index: 1; color:#F2F8F8;}
     .title2>div:nth-child(2){width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; background-color: rgba(0,0,0,0.6);}
 
-    .container04{width: 40%; height: 40%; background-color: #F2F8F8; position: absolute; left: 26%; top: 30%; perspective: 1000px; display: flex; justify-content: center; align-items: center;}
+    .container04{width: 40%; height: 40%; position: absolute; left: 26%; top: 30%; perspective: 2000px; display: flex; justify-content: center; align-items: center;}
     .flipCard{width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: relative;}
     .flipCard:hover .aboutBox, .flipCard.touch-active .aboutBox {transform: rotateY(180deg);}
     .aboutBox{position: relative; width: 100%; height: 100%; transition: all 0.8s linear; transform-style: preserve-3d;}
-    .flipFront, .flipBack {width: 100%; height: 100%; position: absolute; top: 0; left: 0; display: flex; align-items: center; backface-visibility: hidden; box-sizing: border-box;}
-    .flipFront{background-image: url(./image/01miniProfile.PNG); background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;}
-    .flipFront>div:nth-child(1){text-align: center; color: #F2F8F8; background-color: rgba(0,0,0,0.4); border-radius: 10px; padding: 20px 20px; width: 80%; margin: 1rem auto;}
+    .flipFront, .flipBack {width: 100%; height: 100%; position: absolute; top: 0; left: 0; display: flex; align-items: center; backface-visibility: hidden; box-sizing: border-box; border-radius: 10px;}
+    .flipFront{width: 100%; height: 100%; overflow: hidden; background-color:#F2F8F8; display: flex; flex-direction: column; justify-content: center;}
+    .frontImg{width: 90%; height: 40%; overflow: hidden; border-radius: 10px;}
+    .frontImg>img{width: 100%; height: 100%; object-fit: cover;}
+    .flipFront>div:nth-child(2){padding: 20px 20px; width: 80%; border-bottom: 1px solid #777; border-top: 1px solid #777; margin: 1.5rem 0;}
     .flipBack{transform: rotateY(180deg); background-color: white; padding: 30px; flex-direction: column; gap: 3rem;}
     .flipBack>div:nth-child(2){font-size: 1.8rem; font-family: 'StrongArmy';}
     .aboutIcon{display: flex; justify-content: center; gap: 2rem; margin-top: 0.8rem;}
@@ -117,7 +119,7 @@ body{width: 100dvw; background-color: #F2F8F8; overflow-x: hidden; position: rel
 
         /*모바일*/
         @media(max-width:480px){
-            #slideContainer{flex-direction: column; gap: 1rem; top: 45%;}
+            #slideContainer{flex-direction: column; gap: 1rem; top: 50%;}
             #mainSlide{max-width: 350px; max-height: 400px;}
             #prevSlide, #nextSlide{width: 100px; height: auto;}
             .slideName{font-size: 0.7rem; width: 150px; padding: 2px 5px; background-color: rgba(255,255,255,0.4); color: black;}
